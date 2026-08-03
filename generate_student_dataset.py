@@ -16,36 +16,36 @@ for student_id in range(1, NUM_STUDENTS + 1):
 
     if skill == "Beginner":
 
-        correct = random.randint(10, 18)
-        avg_time = random.randint(38, 60)
+        correct = random.randint(12, 20)
+        avg_time = random.randint(35, 60)
         easy_correct = random.randint(6, 10)
         medium_correct = random.randint(3, 6)
         hard_correct = correct - easy_correct - medium_correct
-        current_difficulty = "Easy"
-        streak = random.randint(2, 5)
-        confidence = random.randint(40, 60)
+        current_difficulty = random.choice(["Easy", "Medium"])
+        streak = random.randint(2, 7)
+        confidence = random.randint(35, 70)
 
     elif skill == "Intermediate":
 
-        correct = random.randint(19, 24)
-        avg_time = random.randint(25, 38)
+        correct = random.randint(17, 26)
+        avg_time = random.randint(22, 42)
         easy_correct = random.randint(8, 10)
         medium_correct = random.randint(7, 10)
         hard_correct = correct - easy_correct - medium_correct
-        current_difficulty = "Medium"
-        streak = random.randint(5, 9)
-        confidence = random.randint(61, 80)
+        current_difficulty = random.choice(["Easy", "Medium", "Hard"])
+        streak = random.randint(4, 10)
+        confidence = random.randint(50, 85)
 
     else:
 
-        correct = random.randint(25, 30)
-        avg_time = random.randint(15, 25)
+        correct = random.randint(22, 30)
+        avg_time = random.randint(15, 32)
         easy_correct = 10
         medium_correct = random.randint(8, 10)
         hard_correct = correct - easy_correct - medium_correct
-        current_difficulty = "Hard"
-        streak = random.randint(8, 15)
-        confidence = random.randint(81, 100)
+        current_difficulty = random.choice(["Medium", "Hard"])
+        streak = random.randint(7, 15)
+        confidence = random.randint(70, 100)
 
     if hard_correct < 0:
         hard_correct = 0
@@ -109,7 +109,7 @@ columns = [
 
 df = pd.DataFrame(students, columns=columns)
 
-df.to_csv("student_performance.csv", index=False)
+df.to_csv("datasets/student_performance.csv", index=False)
 
 print("========================================")
 print("Dataset Created Successfully")
