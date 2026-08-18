@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Test Result</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Test Completed</h1>
+
+    <div class="card">
+
+        <h2>Your Result</h2>
+
+        <p>
+            <strong>Level:</strong>
+            {{ level }}
+        </p>
+
+        <p>
+            <strong>Score:</strong>
+            {{ score }}
+        </p>
+
+        <p>
+            <strong>Correct Answers:</strong>
+            {{ correct }}
+        </p>
+
+        <p>
+            <strong>Wrong Answers:</strong>
+            {{ wrong }}
+        </p>
+
+        <p>
+            <strong>Accuracy:</strong>
+            {{ accuracy }}%
+        </p>
+
+        <hr>
+
+        <h2>AI Skill Prediction</h2>
+
+        <p>
+            Your predicted skill level is:
+        </p>
+
+        <h2>
+            {{ predicted_skill }}
+        </h2>
+
+        {% if new_level > level %}
+
+            <p class="success">
+                Congratulations! You have progressed to
+                Level {{ new_level }}.
+            </p>
+
+        {% else %}
+
+            <p>
+                Continue practicing to improve your performance.
+            </p>
+
+        {% endif %}
+
+    </div>
+
+    <br>
+
+    <a href="{{ url_for('dashboard') }}">
+        <button>Back to Dashboard</button>
+    </a>
+
+</div>
+
+</body>
+
+</html>
